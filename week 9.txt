@@ -1,0 +1,293 @@
+You are given a two-dimensional 3*3 array starting from A [0][0]. You should add the alternate elements of the array and print its sum. It should print two different numbers the first being sum of A 0 0, A 0 2, A 1 1, A 2 0, A 2 2 and A 0 1, A 1 0, A 1 2, A 2 1.
+
+ 
+
+ 
+
+Input Format
+
+ 
+
+First and only line contains the value of array separated by single space.
+
+ 
+
+vk
+
+ 
+
+Output Format
+
+ 
+
+First line should print sum of A 0 0, A 0 2, A 1 1, A 2 0, A 2 2
+
+Second line should print sum of A 0 1, A 1 0, A 1 2, A 2 1
+
+ 
+
+SAMPLE INPUT 
+
+ 
+
+1 2 3 4 5 6 7 8 9
+
+ 
+
+SAMPLE OUTPUT 
+
+ 
+
+25
+
+20
+
+ 
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+    int arr[3][3];
+    for(int i=0;i<3;i++)
+    {
+    for(int j=0;j<3;j++)
+    {
+        scanf("%d",&arr[i][j]);
+    }
+    }
+    int odd=0,even=0;
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<3;j++)
+        {
+            if((i+j)%2!=0)
+            odd+=arr[i][j];
+            else
+            even+=arr[i][j];
+        }
+    }
+    printf("%d\n%d",even,odd);
+}
+        
+Feedback
+Input	Expected	Got	
+1 2 3 4 5 6 7 8 9
+25
+20
+25
+20
+21 422 423 443 586 645 657 846 904
+2591
+2356
+2591
+2356
+Passed all tests!  
+
+Question 2
+Correct
+Marked out of 5.00
+Flag question
+Question text
+Microsoft has come to hire interns from your college. N students got shortlisted out of which few were males and a few females. All the students have been assigned talent levels. Smaller the talent level, lesser is your chance to be selected. Microsoft wants to create the result list where it wants the candidates sorted according to their talent levels, but there is a catch. This time Microsoft wants to hire female candidates first and then male candidates.
+
+ 
+
+The task is to create a list where first all-female candidates are sorted in a descending order and then male candidates are sorted in a descending order.
+
+ 
+
+Input Format
+
+ 
+
+The first line contains an integer N denoting the number of students. Next, N lines contain two space-separated integers, ai and bi.
+
+ 
+
+The first integer, ai will be either 1(for a male candidate) or 0(for female candidate).
+
+ 
+
+The second integer, bi will be the candidate's talent level.
+
+ 
+
+Constraints
+
+ 
+
+1 <= N <= 105
+
+0 <= ai <= 1
+
+1 <= bi <= 109
+
+ 
+
+Output Format
+
+ 
+
+Output   space-separated integers, which first contains the talent levels of all female candidates sorted in descending order and then the talent levels of male candidates in descending order.
+
+ 
+
+SAMPLE INPUT
+
+ 
+
+5
+
+0 3
+
+1 6
+
+0 2
+
+0 7
+
+1 15
+
+ 
+
+SAMPLE OUTPUT
+
+ 
+
+7 3 2 15 6
+
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+struct data
+{
+    int gen;int tal;
+    
+};
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    struct data a[n];
+    for(int i=0;i<n;i++)
+    scanf("%d %d",&a[i].gen,&a[i].tal);
+    for(int i=0;i<n-1;i++)
+    {
+        for(int j=0;j<n-i-1;++j)
+        {
+            if(a[j].tal<a[j+1].tal)
+            {
+                struct data temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(a[i].gen==0)
+        printf("%d ",a[i].tal);
+    }for(int i=0;i<n;++i)
+    {
+        if(a[i].gen==1)
+        printf("%d ",a[i].tal);
+    }
+}
+Feedback
+Input	Expected	Got	
+5
+0 3
+1 6
+0 2
+0 7
+1 15
+7 3 2 15 6
+7 3 2 15 6
+6
+0 1
+0 26
+0 39
+0 37
+0 7
+0 13
+39 37 26 13 7 1
+39 37 26 13 7 1
+12
+1 12
+1 14
+1 18
+1 1
+1 2
+1 3
+1 5
+1 8
+1 9
+1 10
+0 29
+0 31
+31 29 18 14 12 10 9 8 5 3 2 1
+31 29 18 14 12 10 9 8 5 3 2 1
+12
+0 12
+1 12
+0 12
+1 12
+0 12
+0 12
+1 12
+0 12
+1 12
+1 12
+0 12
+1 12
+12 12 12 12 12 12 12 12 12 12 12 12
+12 12 12 12 12 12 12 12 12 12 12 12
+Passed all tests!  
+
+Question 3
+Correct
+Marked out of 1.00
+Flag question
+Question text
+ 
+
+Shyam Lal, a wealthy landlord from the state of Rajasthan, being an old fellow and tired of doing hard work, decided to sell all his farmland and to live rest of his life with that money. No other farmer is rich enough to buy all his land so he decided to partition the land into rectangular plots of different sizes with different cost per unit area. So, he sold these plots to the farmers but made a mistake. Being illiterate, he made partitions that could be overlapping. When the farmers came to know about it, they ran to him for compensation of extra money they paid to him. So, he decided to return all the money to the farmers of that land which was overlapping with other farmer's land to settle down the conflict. All the portion of conflicted land will be taken back by the landlord.
+
+ 
+
+To decide the total compensation, he has to calculate the total amount of money to return back to farmers with the same cost they had purchased from him. Suppose, Shyam Lal has a total land area of 1000 x 1000 equal square blocks where each block is equivalent to a unit square area which can be represented on the co-ordinate axis. Now find the total amount of money, he has to return to the farmers. Help Shyam Lal to accomplish this task.
+
+ 
+
+Input Format:
+
+ 
+
+The first line of the input contains an integer N, denoting the total number of land pieces he had distributed. Next N line contains the 5 space separated integers (X1, Y1), (X2, Y2) to represent a rectangular piece of land, and cost per unit area C.
+
+ 
+
+(X1, Y1) and (X2, Y2) are the locations of first and last square block on the diagonal of the rectangular region.
+
+ 
+
+Output Format:
+
+ 
+
+Print the total amount he has to return to farmers to solve the conflict.
+
+ 
+
+Constraints:
+
+ 
+
+1 ≤ N ≤ 100
+
+1 ≤ X1 ≤ X2 ≤ 1000
+
+1 ≤ Y1 ≤ Y2 ≤ 1000
+
+1 ≤
