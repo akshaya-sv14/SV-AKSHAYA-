@@ -1,0 +1,763 @@
+Alice and Bob are playing a game called "Stone Game". Stone game is a two-player game. Let N be the total number of stones. In each turn, a player can remove either one stone or four stones. The player who picks the last stone, wins. They follow the "Ladies First" norm. Hence Alice is always the one to make the first move. Your task is to find out whether Alice can win, if both play the game optimally.
+
+ 
+
+Input Format
+
+ 
+
+First line starts with T, which is the number of test cases. Each test case will contain N number of stones.
+
+ 
+
+Output Format
+
+ 
+
+Print "Yes" in the case Alice wins, else print "No".
+
+ 
+
+Constraints
+
+ 
+
+1<=T<=1000
+
+ 
+
+1<=N<=10000
+
+ 
+
+Sample Input and Output
+
+ 
+
+Input
+
+ 
+
+3
+
+1
+
+6
+
+7
+
+ 
+
+Output
+
+ 
+
+Yes
+
+Yes
+
+No
+
+ 
+
+ 
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+     int t,n,winner;
+     scanf("%d",&t);
+     while(t--)
+     {
+         scanf("%d",&n);
+         winner=0;
+         while(n>0)
+         {
+             if(n>=4)
+             n-=4;
+             else
+             n-=1;
+             winner=!winner;
+         }
+         if (winner==1)
+         printf("Yes\n");
+         else 
+         printf("No\n");
+     }
+     return 0;
+}
+Feedback
+Input	Expected	Got	
+3
+1
+6
+7
+Yes
+Yes
+No
+Yes
+Yes
+No
+Passed all tests!  
+
+Question 2
+Correct
+Marked out of 5.00
+Flag question
+Question text
+You are designing a poster which prints out numbers with a unique style applied to each of them.  The styling is based on the number of closed paths or holes present in a given number. 
+
+ 
+
+The number of holes that each of the digits from 0 to 9 have are equal to the number of closed paths in the digit. Their values are:
+
+ 
+
+1, 2, 3, 5, and 7 = 0 holes.
+
+0, 4, 6, and 9 = 1 hole.
+
+8 = 2 holes.
+
+ 
+
+Given a number, you must determine the sum of the number of holes for all of its digits. For example, the number 819 has 3 holes.
+
+ 
+
+Complete the program, it must must return an integer denoting the total number of holes in num.
+
+ 
+
+Constraints
+
+ 
+
+1 ≤ num ≤ 109
+
+ 
+
+Input Format For Custom Testing
+
+ 
+
+There is one line of text containing a single integer num, the value to process.
+
+ 
+
+Sample Input
+
+ 
+
+630
+
+ 
+
+Sample Output
+
+ 
+
+2
+
+ 
+
+Explanation
+
+ 
+
+Add the holes count for each digit, 6, 3 and 0. Return 1 + 0 + 1 = 2.
+
+ 
+
+Sample Case 1
+
+ 
+
+Sample Input
+
+ 
+
+1288
+
+ 
+
+Sample Output
+
+ 
+
+4
+
+ 
+
+Explanation
+
+ 
+
+Add the holes count for each digit, 1, 2, 8, 8. Return 0 + 0 + 2 + 2 = 4.
+
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int count_holes(int num)
+{
+     int holes_count=0;
+     while(num>0)
+     {
+         int digit =num %10;
+         switch(digit)
+         {
+         case 0:
+         case 4:
+         case 6:
+         case 9:
+         holes_count +=1;
+         break;
+         case 8:
+         holes_count +=2;
+         break;
+         }
+     num/=10;
+   }
+   return holes_count;
+   }
+   int main()
+   {
+       int num;
+       scanf("%d",&num);
+       int result =count_holes(num);
+       printf("%d\n",result);
+       return 0;
+   }
+  
+Feedback
+Input	Expected	Got	
+630
+2
+2
+1288
+4
+4
+Passed all tests!  
+
+Question 3
+Correct
+Marked out of 7.00
+Flag question
+Question text
+The problem solvers have found a new Island for coding and named it as Philaland. These smart people were given a task to make a purchase of items at the Island easier by distributing various coins with different values. Manish has come up with a solution that if we make coins category starting from $1 till the maximum price of the item present on Island, then we can purchase any item easily. He added the following example to prove his point.
+
+ 
+
+Let’s suppose the maximum price of an item is 5$ then we can make coins of {$1, $2, $3, $4, $5}to purchase any item ranging from $1 till $5.
+
+ 
+
+Now Manisha, being a keen observer suggested that we could actually minimize the number of coins required and gave following distribution {$1, $2, $3}. According to him any item can be purchased one time ranging from $1 to $5. Everyone was impressed with both of them. Your task is to help Manisha come up with a minimum number of denominations for any arbitrary max price in Philaland.
+
+ 
+
+Input Format
+
+ 
+
+Contains an integer N denoting the maximum price of the item present on Philaland.
+
+ 
+
+Output Format
+
+ 
+
+Print a single line denoting the minimum number of denominations of coins required.
+
+ 
+
+Constraints
+
+ 
+
+1<=T<=100
+
+1<=N<=5000
+
+ 
+
+Refer the sample output for formatting
+
+ 
+
+Sample Input 1:
+
+ 
+
+10
+
+ 
+
+Sample Output 1:
+
+ 
+
+4
+
+ 
+
+Sample Input 2:
+
+ 
+
+5
+
+ 
+
+Sample Output 2:
+
+ 
+
+3
+
+ 
+
+
+ 
+
+Explanation:
+
+ 
+
+For test case 1, N=10.
+
+ 
+
+According to Manish {$1, $2, $3,… $10} must be distributed.
+
+ 
+
+But as per Manisha only {$1, $2, $3, $4} coins are enough to purchase any item ranging from $1 to $10. Hence minimum is 4. Likewise denominations could also be {$1, $2, $3, $5}. Hence answer is still 4.
+
+ 
+
+For test case 2, N=5.
+
+ 
+
+According to Manish {$1, $2, $3, $4, $5} must be distributed.
+
+ 
+
+But as per Manisha only {$1, $2, $3} coins are enough to purchase any item ranging from $1 to $5. Hence minimum is 3. Likewise, denominations could also be {$1, $2, $4}. Hence answer is still 3.
+
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+    int n,count=0;
+    scanf("%d",&n);
+    while(n>0)
+    {
+        n=n/2;
+        count++;
+    
+    }
+    printf("%d",count);
+    return 0;
+}
+Feedback
+Input	Expected	Got	
+10
+4
+4
+5
+3
+3
+20
+5
+5
+500
+9
+9
+1000
+10
+10
+Passed all tests!  
+ set of N numbers (separated by one space) is passed as input to the program. The program must identify the count of numbers where the number is odd number.
+
+ 
+
+Input Format:
+
+ 
+
+The first line will contain the N numbers separated by one space.
+
+ 
+
+Boundary Conditions:
+
+ 
+
+3 <= N <= 50
+
+ 
+
+The value of the numbers can be from -99999999 to 99999999
+
+ 
+
+Output Format:
+
+ 
+
+The count of numbers where the numbers are odd numbers.
+
+ 
+
+Example Input / Output 1:
+
+ 
+
+Input:
+
+ 
+
+5 10 15 20 25 30 35 40 45 50
+
+ 
+
+Output:
+
+ 
+
+5
+
+ 
+
+Explanation:
+
+ 
+
+The numbers meeting the criteria are 5, 15, 25, 35, 45.
+
+ 
+
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+    int num,odd=0;
+    while(scanf("%d",&num)>0)
+    {
+        if(num%2==1)
+        {
+            odd++;
+            
+        }
+     }
+printf("%d",odd);
+return 0;
+}
+Feedback
+Input	Expected	Got	
+5 10 15 20 25 30 35 40 45 50
+5
+5
+Passed all tests!  
+
+Question 2
+Correct
+Marked out of 5.00
+Flag question
+Question text
+Given a number N, return true if and only if it is a confusing number, which satisfies the following condition:
+
+ 
+
+We can rotate digits by 180 degrees to form new digits. When 0, 1, 6, 8, 9 are rotated 180 degrees, they become 0, 1, 9, 8, 6 respectively. When 2, 3, 4, 5 and 7 are rotated 180 degrees, they become invalid. A confusing number is a number that when rotated 180 degrees becomes a different number with each digit valid.
+
+ 
+
+Example 1:
+
+6 -> 9 
+
+Input: 6
+
+Output: true
+
+Explanation:
+
+We get 9 after rotating 6, 9 is a valid number and 9!=6.
+
+ 
+
+Example 2:
+
+89 -> 68
+
+Input: 89
+
+Output: true
+
+Explanation:
+
+We get 68 after rotating 89, 86 is a valid number and 86!=89.
+
+ 
+
+Example 3:
+
+11 -> 11
+
+Input: 11
+
+Output: false
+
+Explanation:
+
+We get 11 after rotating 11, 11 is a valid number but the value remains the same, thus 11 is not a confusing number.
+
+ 
+
+
+Note:
+
+1.      0 <= N <= 10^9
+
+2.      After the rotation we can ignore leading zeros, for example if after rotation we have 0008 then this number is considered as just 8.
+
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+    int a,rem,flag=0,c=0,s=0,b;
+    scanf("%d",&a);
+    b=a;
+    while(a){
+        rem=a%10;
+        if(rem==1||rem==6||rem==8||rem==9||rem==0)
+        flag++;
+        s=s*10+rem;
+        a=a/10;
+        c++;
+    }
+    if(flag==c)
+    {
+        if(s!=b||c==1)
+        {
+            printf("true");
+        }
+    }
+    else
+    {
+        printf("false");
+    }
+    return 0;
+}
+    
+Feedback
+Input	Expected	Got	
+6
+true
+true
+89
+true
+true
+25
+false
+false
+Passed all tests!  
+
+Question 3
+Correct
+Marked out of 7.00
+Flag question
+Question text
+A nutritionist is labeling all the best power foods in the market. Every food item arranged in a single line, will have a value beginning from 1 and increasing by 1 for each, until all items have a value associated with them. An item's value is the same as the number of macronutrients it has. For example, food item with value 1 has 1 macronutrient, food item with value 2 has 2 macronutrients, and incrementing in this fashion.
+
+ 
+
+The nutritionist has to recommend the best combination to patients, i.e. maximum total of macronutrients. However, the nutritionist must avoid prescribing a particular sum of macronutrients (an 'unhealthy' number), and this sum is known. The nutritionist chooses food items in the increasing order of their value. Compute the highest total of macronutrients that can be prescribed to a patient, without the sum matching the given 'unhealthy' number.
+
+ 
+
+Here's an illustration:
+
+ 
+
+Given 4 food items (hence value: 1,2,3 and 4), and the unhealthy sum being 6 macronutrients, on choosing items 1, 2, 3 -> the sum is 6, which matches the 'unhealthy' sum. Hence, one of the three needs to be skipped. Thus, the best combination is from among:
+
+·         2 + 3 + 4 = 9
+
+·         1 + 3 + 4 = 8
+
+·         1 + 2 + 4 = 7 
+
+ 
+
+Since 2 + 3 + 4 = 9, allows for maximum number of macronutrients, 9 is the right answer.
+
+ 
+
+Complete the code in the editor below. It must return an integer that represents the maximum total of macronutrients, modulo 1000000007 (109 + 7).
+
+ 
+
+It has the following:
+
+    n: an integer that denotes the number of food items
+
+    k: an integer that denotes the unhealthy number
+
+ 
+
+Constraints
+
+·         1 ≤ n ≤ 2 × 109
+
+·         1 ≤ k ≤ 4 × 1015
+
+ 
+
+Input Format For Custom Testing
+
+ 
+
+The first line contains an integer, n, that denotes the number of food items.
+
+The second line contains an integer, k, that denotes the unhealthy number.
+
+ 
+
+Sample Input 0
+
+ 
+
+2
+
+2
+
+ 
+
+Sample Output 0
+
+ 
+
+3
+
+ 
+
+
+ 
+
+Explanation 0
+
+ 
+
+The following sequence of n = 2 food items:
+
+1.      Item 1 has 1 macronutrients.
+
+2.      1 + 2 = 3; observe that this is the max total, and having avoided having exactly k = 2 macronutrients.
+
+ 
+
+Sample Input 1
+
+ 
+
+2
+
+1
+
+ 
+
+Sample Output 1
+
+ 
+
+2
+
+ 
+
+Explanation 1
+
+ 
+
+1.      Cannot use item 1 because k = 1 and sum ≡ k has to be avoided at any time.
+
+2.      Hence, max total is achieved by sum = 0 + 2 = 2.
+
+ 
+
+Sample Case 2
+
+ 
+
+Sample Input For Custom Testing
+
+ 
+
+Sample Input 2
+
+ 
+
+3
+
+3
+
+ 
+
+Sample Output 2
+
+ 
+
+5
+
+ 
+
+Explanation 2
+
+ 
+
+2 + 3 = 5, is the best case for maximum nutrients.
+
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+    long long n,k,sum;
+    scanf("%lld %lld",&n,&k);
+    sum=0;
+    for(long long i=1;i<=n;i++)
+    {
+        sum+=i;
+        if(sum==k)
+        {
+            sum-=1;
+        
+        }
+    }
+    printf("%lld",sum%1000000007);
+    return 0;
+    
+}                   
+Feedback
+Input	Expected	Got	
+2
+2
+3
+3
+2
+1
+2
+2
+3
+3
+5
+5
+Passed all tests!  
