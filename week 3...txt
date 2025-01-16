@@ -1,0 +1,889 @@
+Write a program to read two integer values and print true if both the numbers end with the same digit, otherwise print false. Example: If 698 and 768 are given, program should print true as they both end with 8. Sample Input 1 25 53 Sample Output 1 false Sample Input 2 27 77 Sample Output 2 true
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main() {
+    int x,y;
+    scanf("%d %d",&x,&y);
+    if(x%10==y%10) {
+        printf("true"); }
+    else {
+        printf("false");
+    }
+}
+    
+Feedback
+Input	Expected	Got	
+25 53
+false
+false
+27 77
+true
+true
+Passed all tests!  
+
+Question 2
+Correct
+Marked out of 5.00
+Flag question
+Question text
+Objective 
+
+
+In this challenge, we're getting started with conditional statements.
+
+ 
+
+Task 
+
+
+Given an integer, n, perform the following conditional actions:
+
+ 
+
+·         If n is odd, print Weird
+
+·         If n is even and in the inclusive range of 2 to 5, print Not Weird
+
+·         If n is even and in the inclusive range of 6 to 20, print Weird
+
+·         If n is even and greater than 20, print Not Weird
+
+ 
+
+Complete the stub code provided in your editor to print whether or not n is weird.
+
+ 
+
+Input Format
+
+ 
+
+A single line containing a positive integer, n.
+
+ 
+
+Constraints
+
+ 
+
+·         1 < n < 100
+
+ 
+
+Output Format
+
+ 
+
+Print Weird if the number is weird; otherwise, print Not Weird.
+
+ 
+
+Sample Input 0
+
+ 
+
+3
+
+ 
+
+Sample Output 0
+
+ 
+
+Weird
+
+ 
+
+Sample Input 1
+
+ 
+
+24
+
+ 
+
+Sample Output 1
+
+ 
+
+Not Weird
+
+ 
+
+Explanation
+
+ 
+
+Sample Case 0:  n = 3
+
+n is odd and odd numbers are weird, so we print Weird.
+
+
+
+Sample Case 1:  n = 24
+
+n > 20 and n is even, so it isn't weird. Thus, we print Not Weird.
+
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main() {
+    int n;
+    scanf("%d",&n);
+    if(n%2==0) {
+        if(n>=2 && n<=5) {
+            printf("Not Weird"); }
+            if(n>20) {
+                printf("Not Weird"); } }
+    else {
+        printf("Weird"); }
+}
+    
+Feedback
+Input	Expected	Got	
+3
+Weird
+Weird
+24
+Not Weird
+Not Weird
+Passed all tests!  
+
+Question 3
+Correct
+Marked out of 7.00
+Flag question
+Question textThree numbers form a Pythagorean triple if the sum of squares of two numbers is equal to the square of the third. For example, 3, 5 and 4 form a Pythagorean triple, since 3*3 + 4*4 = 25 = 5*5 You are given three integers, a, b, and c. They need not be given in increasing order. If they form a Pythagorean triple, then print "yes", otherwise, print "no". Please note that the output message is in small letters. Sample Input 1 3 5 4 Sample Output 1 yes Sample Input 2 5 8 2 Sample Output 2 no
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main() {
+    int a,b,c;
+    scanf("%d%d%d",&a,&b,&c);
+    if(a*a+b*b==c*c) {
+        printf("yes"); }
+        else if(a*a+c*c==b*b) {
+            printf("yes"); }
+        else if(b*b+c*c==a*a) {
+            printf("yes");  }
+        else {
+            printf("no"); }
+        return 0;
+}
+        
+Feedback
+Input	Expected	Got	
+3
+5
+4
+yes
+yes
+5
+8
+2
+no
+no
+Passed all tests!  
+Write a program that determines the name of a shape from its number of sides. Read the number of sides from the user and then report the appropriate name as part of a meaningful message. Your program should support shapes with anywhere from 3 up to (and including) 10 sides. If a number of sides outside of this range is entered then your program should display an appropriate error message.
+
+ 
+
+Sample Input 1
+
+ 
+
+3
+
+ 
+
+Sample Output 1
+
+ 
+
+Triangle
+
+ 
+
+Sample Input 2
+
+ 
+
+7
+
+ 
+
+Sample Output 2
+
+ 
+
+Heptagon
+
+ 
+
+Sample Input 3
+
+ 
+
+11
+
+ 
+
+Sample Output 3
+
+ 
+
+The number of sides is not supported.
+
+ 
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    if(n==3)
+    {
+        printf("Triangle");
+    }
+    else if(n==4)
+    {
+        printf("Square");
+    }
+    else if(n==5)
+    {
+        printf("Pentagon");
+    }
+    else if(n==6)
+    {
+        printf("Hexagon");
+    }
+    else if(n==7)
+    {
+        printf("Heptagon");
+    }
+    else if(n==8)
+    {
+        printf("Octagon");
+    }
+    else if(n==9)
+    {
+        printf("Nonagon");
+    }
+    else if(n==10)
+    {
+        printf("Decagon");
+    }
+    else
+    {
+        printf("The number of sides is not supported.");
+    }
+}
+    
+Feedback
+Input	Expected	Got	
+3
+Triangle
+Triangle
+7
+Heptagon
+Heptagon
+11
+The number of sides is not supported.
+The number of sides is not supported.
+Passed all tests!  
+
+Question 2
+Incorrect
+Marked out of 5.00
+Flag question
+Question text
+The Chinese zodiac assigns animals to years in a 12-year cycle. One 12-year cycle is shown in the table below. The pattern repeats from there, with 2012 being another year of the Dragon, and 1999 being another year of the Hare.
+
+ 
+
+Year                Animal
+
+ 
+
+2000               Dragon
+
+2001               Snake
+
+2002               Horse
+
+2003               Sheep
+
+2004               Monkey
+
+2005               Rooster
+
+2006               Dog
+
+2007               Pig
+
+2008               Rat
+
+2009               Ox
+
+2010               Tiger
+
+2011               Hare
+
+ 
+
+Write a program that reads a year from the user and displays the animal associated with that year. Your program should work correctly for any year greater than or equal to zero, not just the ones listed in the table.
+
+ 
+
+Sample Input 1
+
+ 
+
+2004
+
+ 
+
+Sample Output 1
+
+ 
+
+Monkey
+
+ 
+
+Sample Input 2
+
+ 
+
+2010
+
+ 
+
+Sample Output 2
+
+ 
+
+Tiger
+
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+    int year;
+    scanf("%d",&year);
+    if(year%12==8)
+    {
+        printf("Dragon)");
+        
+    }
+    else if(year%12==9)
+    {
+        printf("snake");
+    }
+    else if(year%12==10)
+    {
+        printf("Horse");
+    }
+    else if(year%12==11)
+    {
+        printf("sheep");
+        }
+    else if(year%12==0)
+    {
+        printf("Monkey");
+    }
+    else if(year%12==1)
+    {
+        printf("Rooster");
+    }
+    else if(year%12==2)
+    {
+        printf("Dog");
+    }
+    else if(year%12==3)
+    {
+        printf("Rat");
+    }
+    else if(year%12==5)
+    {
+        printf("ox");
+    }
+    else if(year%12==6)
+    {
+        printf("Tiger");
+    }
+    else 
+    {
+        printf("Hare");
+    }
+}
+Feedback
+Input	Expected	Got	
+2004
+Monkey
+Monkey
+2010
+Tiger
+Tiger
+Your code failed one or more hidden tests.
+Your code must pass all tests to earn any marks. Try again.
+
+Question 3
+Incorrect
+Marked out of 7.00
+Flag question
+Question text
+Positions on a chess board are identiﬁed by a letter and a number. The letter identiﬁes the column, while the number identiﬁes the row, as shown below:
+
+ 
+
+Write a program that reads a position from the user. Use an if statement to determine if the column begins with a black square or a white square. Then use modular arithmetic to report the color of the square in that row. For example, if the user enters a1 then your program should report that the square is black. If the user enters d5 then your program should report that the square is white. Your program may assume that a valid position will always be entered. It does not need to perform any error checking.
+
+ 
+
+Sample Input 1
+
+ 
+
+a 1
+
+ 
+
+Sample Output 1
+
+ 
+
+The square is black.
+
+ 
+
+Sample Input 2
+
+ 
+
+d 5
+
+ 
+
+Sample Output 2
+
+ 
+
+The square is white.
+
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+    int num,sum;
+    char alpha;
+    scanf("%C%d",&alpha,&num);
+    sum=alpha+num;
+    if(sum%2==0)
+    {
+        printf("The square is black.");
+        
+    }
+    else
+    {
+        
+       printf ("The square is white.");
+       
+    }
+}
+Some data sets specify dates using the year and day of year rather than the year, month, and day of month. The day of year (DOY) is the sequential day number starting with day 1 on January 1st.
+
+ 
+
+There are two calendars - one for normal years with 365 days, and one for leap years with 366 days. Leap years are divisible by 4. Centuries, like 1900, are not leap years unless they are divisible by 400. So, 2000 was a leap year.
+
+ 
+
+To find the day of year number for a standard date, scan down the Jan column to find the day of month, then scan across to the appropriate month column and read the day of year number. Reverse the process to find the standard date for a given day of year.
+
+ 
+
+Write a program to print the Day of Year of a given date, month and year.
+
+ 
+
+Sample Input 1
+
+ 
+
+18
+
+6
+
+2020
+
+ 
+
+Sample Output 1
+
+ 
+
+170
+
+ 
+
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+    int d,m,y,feb;
+    scanf("%d%d%d",&d,&m,&y);
+    if((y%100==0&&y%400)||(y%4==0))
+    feb=29;
+    else
+    feb=28;
+    switch(m)
+    {
+        case 1:
+        printf("%d",d);
+        break;
+        case 2:
+        printf("%d",31+d);
+        break;
+        case 3:
+        printf("%d",31+feb+d);
+        break;
+        case 4:
+        printf("%d",31+feb+31+d);
+        break;
+        case 5:
+        printf("%d",31+feb+31+30+d);
+        break;
+        case 6:
+        printf("%d",31+feb+31+30+31+d);
+        break;
+        case 7:
+        printf("%d",31+feb+31+30+31+30+d);
+        break;
+        case 8:
+        printf("%d",31+feb+31+30+31+30+31+d);
+        break;
+        case 9:
+        printf("%d",31+feb+31+30+31+30+31+31+d);
+        break;
+        case 10:
+        printf("%d",31+feb+31+30+31+30+31+31+30+d);
+        break;
+        case 11:
+        printf("%d",31+feb+31+30+31+30+31+31+30+31+d);
+        break;
+        case 12:
+        printf("%d",31+feb+31+30+31+30+31+31+30+31+30+d);
+        break;
+    }
+}
+
+Feedback
+Input	Expected	Got	
+18
+6
+2020
+170
+170
+Passed all tests!  
+
+Question 2
+Correct
+Marked out of 5.00
+Flag question
+Question text
+Suppandi is trying to take part in the local village math quiz. In the first round, he is asked about shapes and areas. Suppandi, is confused, he was never any good at math. And also, he is bad at remembering the names of shapes. Instead, you will be helping him calculate the area of shapes.
+
+ 
+
+·         When he says rectangle he is actually referring to a square. 
+
+·         When he says square, he is actually referring to a triangle.
+
+·         When he says triangle he is referring to a rectangle
+
+·         And when he is confused, he just says something random. At this point, all you can do is say 0.
+
+ 
+
+Help Suppandi by printing the correct answer in an integer.
+
+ 
+
+Input Format
+
+ 
+
+·         Name of shape (always in upper case R à Rectangle, S à Square, T à Triangle)
+
+·         Length of 1 side
+
+·         Length of other side
+
+ 
+
+Note: In case of triangle, you can consider the sides as height and length of base
+
+ 
+
+Output Format
+
+ 
+
+·         Print the area of the shape.
+
+ 
+
+Sample Input 1
+
+ 
+
+T
+
+10
+
+20
+
+ 
+
+Sample Output 1
+
+ 
+
+200
+
+ 
+
+Sample Input 2
+
+ 
+
+S
+
+30
+
+40
+
+ 
+
+Sample Output 2
+
+ 
+
+600
+
+ 
+
+
+ 
+
+Sample Input 3
+
+ 
+
+R
+
+10
+
+10
+
+ 
+
+Sample Output 3
+
+ 
+
+100
+
+ 
+
+Sample Input 4
+
+ 
+
+G
+
+8
+
+8
+
+ 
+
+Sample Output 4
+
+ 
+
+0
+
+ 
+
+Sample Input
+
+ 
+
+C
+
+9
+
+10
+
+ 
+
+Sample Output 4
+
+ 
+
+0
+
+ 
+
+Explanation:
+
+ 
+
+·         First is output of area of rectangle
+
+·         Then, output of area of triangle
+
+·         Then output of area square
+
+·         Finally, something random, so we print 0
+
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+    int a,b;
+    char c;
+    scanf("%c%d%d",&c,&a,&b);
+    switch(c)
+    {
+        case 'R':
+        printf("%d",a*b);
+        break;
+        case 'S':
+        printf("%.0f",(0.5)*a*b);
+        break;
+        case 'T':
+        printf("%d",a*b);
+        break;
+        default:
+        printf("0");
+    }
+}
+Input	Expected	Got	
+T
+10
+20
+200
+200
+S
+30
+40
+600
+600
+B
+2
+11
+0
+0
+R
+10
+30
+300
+300
+S
+40
+50
+1000
+1000
+Passed all tests!  
+
+Question 3
+Correct
+Marked out of 7.00
+Flag question
+Question text
+Superman is planning a journey to his home planet. It is very important for him to know which day he arrives there. They don't follow the 7-day week like us. Instead, they follow a 10-day week with the following days: Day Number Name of Day 1 Sunday 2 Monday 3 Tuesday 4 Wednesday 5 Thursday 6 Friday 7 Saturday 8 Kryptonday 9 Coluday 10 Daxamday Here are the rules of the calendar: • The calendar starts with Sunday always. • It has only 296 days. After the 296th day, it goes back to Sunday. You begin your journey on a Sunday and will reach after n. You have to tell on which day you will arrive when you reach there.
+
+Input format: •
+
+ Contain a number n (0 < n)
+
+Output format: Print the name of the day you are arriving on
+
+Example Input
+
+7
+
+ Example Output
+
+ Kryptonday
+
+ Example Input
+
+ 1
+
+ Example Output Monday
+
+Answer:(penalty regime: 0 %)
+#include<stdio.h>
+int main()
+{
+    int n,day;
+    scanf("%d",&n);
+    if(n<296)
+    day=n;   
+    else
+    day=n-296;
+    day%=10;
+    day=day+1;
+    day%=10;
+    switch(day)
+    {
+        case 1:
+        printf("Sunday");
+        break;
+        case 2:
+        printf("Monday");
+        break;
+        case 3:
+        printf("Tuesday");
+        break;
+        case 4:
+        printf("Wednesday");
+        break;
+        case 5:
+        printf("Thursday");
+        break;
+        case 6:
+        printf("Friday");
+        break;
+        case 7:
+        printf("Saturday");
+        break;
+        case 8:
+        printf("Kryptonday");
+        break;
+        case 9:
+        printf("Coluday");
+        break;
+        case 10:
+        printf("Daxamday");
+        break;
+    }
+}
+
+Feedback
+Input	Expected	Got	
+7
+Kryptonday
+Kryptonday
+1
+Monday
+Monday
+Passed all tests!  
